@@ -12,7 +12,7 @@ public class Database {
     public List<Fornecedor> fornecedores = new ArrayList<>();
     public List<Produto> produtos = new ArrayList<>();
     public List<Compra> compras = new ArrayList<>();
-    
+
     public Database() {
         initDatabase();
     }
