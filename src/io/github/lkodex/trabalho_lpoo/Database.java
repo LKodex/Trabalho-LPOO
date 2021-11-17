@@ -12,9 +12,13 @@ public class Database {
     public List<Fornecedor> fornecedores = new ArrayList<>();
     public List<Produto> produtos = new ArrayList<>();
     public List<Compra> compras = new ArrayList<>();
-
-    //-- Start: Database --//
+    
     public Database() {
+        initDatabase();
+    }
+
+    private void initDatabase(){
+        //-- Start: Database --//
         // Endereços
         enderecos.add(new Endereco("Rua Zero", 100, "Bairro", "Cidade"));
         enderecos.add(new Endereco("Rua Um", 2000, "Bairro", "Cidade"));
@@ -59,6 +63,6 @@ public class Database {
                 compras.get(i).adicionarProduto(produtos.get((int) (Math.random() * 9)));
             }
         }
+        //-- End: Database --//
     }
-    //-- End: Database --//
 }
