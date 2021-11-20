@@ -6,18 +6,18 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class Database {
-    public List<Endereco> enderecos = new ArrayList<>();
-    public List<Funcionario> funcionarios = new ArrayList<>();
-    public List<Cliente> clientes = new ArrayList<>();
-    public List<Fornecedor> fornecedores = new ArrayList<>();
-    public List<Produto> produtos = new ArrayList<>();
-    public List<Compra> compras = new ArrayList<>();
+    public static List<Endereco> enderecos = new ArrayList<>();
+    public static List<Funcionario> funcionarios = new ArrayList<>();
+    public static List<Cliente> clientes = new ArrayList<>();
+    public static List<Fornecedor> fornecedores = new ArrayList<>();
+    public static List<Produto> produtos = new ArrayList<>();
+    public static List<Compra> compras = new ArrayList<>();
 
     public Database() {
         initDatabase();
     }
 
-    private void initDatabase(){
+    public static void initDatabase(){
         //-- Start: Database --//
         // Endereços
         enderecos.add(new Endereco("Rua Zero", 100, "Bairro", "Cidade"));

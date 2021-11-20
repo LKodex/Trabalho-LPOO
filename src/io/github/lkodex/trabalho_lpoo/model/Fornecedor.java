@@ -10,14 +10,11 @@ public class Fornecedor implements Verificavel {
 
     // Constructors //
     public Fornecedor(String razaoSocial, String nomeFantasia, String cnpj, Endereco endereco, String celular){
-        this.razaoSocial = razaoSocial;
-        this.nomeFantasia = nomeFantasia;
-        this.cnpj = cnpj;
-        //while (!validar(cnpj)){
-        //    solicitarNovo();
-        //}
+        this.razaoSocial = razaoSocial.strip();
+        this.nomeFantasia = nomeFantasia.strip();
+        this.cnpj = cnpj.replaceAll("[^0-9]", "");
         this.endereco = endereco;
-        this.celular = celular;
+        this.celular = celular.strip();
     }
 
     // Methods //
@@ -92,18 +89,69 @@ public class Fornecedor implements Verificavel {
     }
 
     public String getCnpj() {
-        char[] cnpjFormatado = cnpj.toCharArray();
+        char[] cnpjFormatado = new char[18];
+        char[] cnpjArray = this.cnpj.toCharArray();
 
-        System.arraycopy(cnpjFormatado, 0, cnpjFormatado, 0, 2);
-        System.arraycopy(cnpjFormatado, 2, cnpjFormatado, 3, 3);
-        System.arraycopy(cnpjFormatado, 5, cnpjFormatado, 7, 3);
-        System.arraycopy(cnpjFormatado, 8, cnpjFormatado, 11, 4);
-        System.arraycopy(cnpjFormatado, 11, cnpjFormatado, 16, 2);
+        cnpjFormatado[17] = cnpjArray[12];
+        cnpjFormatado[16] = cnpjArray[11];
+
+        cnpjFormatado[15] = '-';
+
+        cnpjFormatado[14] = cnpjArray[10];
+        cnpjFormatado[13] = cnpjArray[9];
+        cnpjFormatado[12] = cnpjArray[8];
+        cnpjFormatado[11] =
+
+        cnpjFormatado[10] = '.';
+
+        cnpjFormatado[9] = cnpjArray[7];
+        cnpjFormatado[8] = cnpjArray[6];
+        cnpjFormatado[7] = cnpjArray[5];
+
+        cnpjFormatado[6] = '.';
+
+        cnpjFormatado[5] = cnpjArray[4];
+        cnpjFormatado[4] = cnpjArray[3];
+        cnpjFormatado[3] = cnpjArray[2];
 
         cnpjFormatado[2] = '.';
-        cnpjFormatado[6] = '.';
-        cnpjFormatado[10] = '.';
+
+        cnpjFormatado[1] = cnpjArray[1];
+        cnpjFormatado[0] = cnpjArray[0];
+
+        return new String(cnpjFormatado);
+    }
+
+    public static String formatarCnpj(String cnpj){
+        char[] cnpjFormatado = new char[18];
+        char[] cnpjArray = cnpj.toCharArray();
+
+        cnpjFormatado[17] = cnpjArray[12];
+        cnpjFormatado[16] = cnpjArray[11];
+
         cnpjFormatado[15] = '-';
+
+        cnpjFormatado[14] = cnpjArray[10];
+        cnpjFormatado[13] = cnpjArray[9];
+        cnpjFormatado[12] = cnpjArray[8];
+        cnpjFormatado[11] =
+
+                cnpjFormatado[10] = '.';
+
+        cnpjFormatado[9] = cnpjArray[7];
+        cnpjFormatado[8] = cnpjArray[6];
+        cnpjFormatado[7] = cnpjArray[5];
+
+        cnpjFormatado[6] = '.';
+
+        cnpjFormatado[5] = cnpjArray[4];
+        cnpjFormatado[4] = cnpjArray[3];
+        cnpjFormatado[3] = cnpjArray[2];
+
+        cnpjFormatado[2] = '.';
+
+        cnpjFormatado[1] = cnpjArray[1];
+        cnpjFormatado[0] = cnpjArray[0];
 
         return new String(cnpjFormatado);
     }

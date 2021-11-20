@@ -4,6 +4,7 @@ import java.util.*;
 
 public class Compra {
     // Attributes //
+    private int codigoCompra;
     private Funcionario funcionario;
     private Cliente cliente;
     private List<Produto> produtos = new ArrayList<>();
@@ -17,6 +18,7 @@ public class Compra {
     // Methods //
     public void adicionarProduto(Produto produto){
         produtos.add(produto);
+        Collections.sort(produtos);
     }
 
     public void listarCompra(){
@@ -25,7 +27,6 @@ public class Compra {
         System.out.printf("\nComprado por:\t%s", this.cliente.getNome());
         System.out.printf("\nVendido por: \t%s", this.funcionario.getNome());
 
-        Collections.sort(produtos);
         for (Produto produto : this.produtos) {
             valorTotal += produto.getValor();
             System.out.printf("\n%-30s | R$%.2f", produto.getNomeProduto(), produto.getValor());
@@ -34,6 +35,14 @@ public class Compra {
     }
 
     // Getters & Setters
+    public int getCodigoCompra() {
+        return codigoCompra;
+    }
+
+    public void setCodigoCompra(int codigoCompra) {
+        this.codigoCompra = codigoCompra;
+    }
+
     public Funcionario getFuncionario() {
         return funcionario;
     }

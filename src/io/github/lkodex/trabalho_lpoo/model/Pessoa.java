@@ -9,13 +9,10 @@ public abstract class Pessoa implements Verificavel {
 
     // Constructos //
     public Pessoa(String nome, String cpf, Endereco endereco, String celular){
-        this.nome = nome;
-        this.cpf = cpf;
-        while (!this.validar(this.cpf)){
-            this.solicitarNovo();
-        }
+        this.nome = nome.strip();
+        this.cpf = cpf.replaceAll("[^0-9]", "");
         this.endereco = endereco;
-        this.celular = celular;
+        this.celular = celular.strip();
     }
     // Methods //
     @Override
@@ -81,7 +78,59 @@ public abstract class Pessoa implements Verificavel {
     }
 
     public String getCpf() {
-        return cpf;
+        char[] cpfFormatado = new char[14];
+        char[] cpfArray = this.cpf.toCharArray();
+
+        cpfFormatado[13] = cpfArray[10];
+        cpfFormatado[12] = cpfArray[9];
+
+        cpfFormatado[11] = '-';
+
+        cpfFormatado[10] = cpfArray[8];
+        cpfFormatado[9] = cpfArray[7];
+        cpfFormatado[8] = cpfArray[6];
+
+        cpfFormatado[7] = '.';
+
+        cpfFormatado[6] = cpfArray[5];
+        cpfFormatado[5] = cpfArray[4];
+        cpfFormatado[4] = cpfArray[3];
+
+        cpfFormatado[3] = '.';
+
+        cpfFormatado[2] = cpfArray[2];
+        cpfFormatado[1] = cpfArray[1];
+        cpfFormatado[0] = cpfArray[0];
+
+        return new String(cpfFormatado);
+    }
+
+    public static String formatarCpf(String cpf){
+        char[] cpfFormatado = new char[14];
+        char[] cpfArray = cpf.toCharArray();
+
+        cpfFormatado[13] = cpfArray[10];
+        cpfFormatado[12] = cpfArray[9];
+
+        cpfFormatado[11] = '-';
+
+        cpfFormatado[10] = cpfArray[8];
+        cpfFormatado[9] = cpfArray[7];
+        cpfFormatado[8] = cpfArray[6];
+
+        cpfFormatado[7] = '.';
+
+        cpfFormatado[6] = cpfArray[5];
+        cpfFormatado[5] = cpfArray[4];
+        cpfFormatado[4] = cpfArray[3];
+
+        cpfFormatado[3] = '.';
+
+        cpfFormatado[2] = cpfArray[2];
+        cpfFormatado[1] = cpfArray[1];
+        cpfFormatado[0] = cpfArray[0];
+
+        return new String(cpfFormatado);
     }
 
     public void setCpf(String cpf) {

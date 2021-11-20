@@ -10,18 +10,27 @@ public class Endereco {
 
     // Constructors //
     public Endereco(String rua, int numero, String bairro, String cidade, String cep){
-        this.rua = rua;
+        this.rua = rua.strip();
         this.numero = numero;
-        this.bairro = bairro;
-        this.cidade = cidade;
-        this.cep = cep;
+        this.bairro = bairro.strip();
+        this.cidade = cidade.strip();
+        this.cep = cep.strip();
     }
 
     public Endereco(String rua, int numero, String bairro, String cidade){
-        this.rua = rua;
+        this.rua = rua.strip();
         this.numero = numero;
-        this.bairro = bairro;
-        this.cidade = cidade;
+        this.bairro = bairro.strip();
+        this.cidade = cidade.strip();
+    }
+
+    // Methods
+    @Override
+    public String toString(){
+        if (cep != null){
+            return String.format("%s, %d - %s. %s. %s.", rua, numero, bairro, cidade, cep);
+        }
+        return String.format("%s, %d - %s. %s.", rua, numero, bairro, cidade);
     }
 
     // Getters & Setters //
