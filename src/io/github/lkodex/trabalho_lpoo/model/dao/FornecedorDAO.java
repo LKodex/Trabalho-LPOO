@@ -1,7 +1,6 @@
 package io.github.lkodex.trabalho_lpoo.model.dao;
 
 import io.github.lkodex.trabalho_lpoo.Database;
-import io.github.lkodex.trabalho_lpoo.model.Cliente;
 import io.github.lkodex.trabalho_lpoo.model.Fornecedor;
 
 import java.util.List;
@@ -13,8 +12,9 @@ public class FornecedorDAO {
 
     // CRUD //
     public void createFornecedor(Fornecedor fornecedor){
+        String cnpj = fornecedor.getCnpj();
         for (Fornecedor fornecedorDB : Database.fornecedores){
-            if (fornecedorDB.getCnpj().equals(fornecedor.getCnpj())){
+            if (fornecedorDB.getCnpj().equals(cnpj)){
                 updateFornecedor(fornecedor);
                 return;
             }
@@ -23,8 +23,9 @@ public class FornecedorDAO {
     }
 
     public Fornecedor readFornecedor(String cnpj){
+        cnpj = Fornecedor.formatarCnpj(cnpj);
         for (Fornecedor fornecedor : Database.fornecedores) {
-            if (fornecedor.getCnpj().equals(Fornecedor.formatarCnpj(cnpj))){
+            if (fornecedor.getCnpj().equals(cnpj)){
                 return fornecedor;
             }
         }

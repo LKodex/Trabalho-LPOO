@@ -27,8 +27,8 @@ public class Database {
         enderecos.add(new Endereco("Av. Quarta", 500, "Bairro", "Cidade"));
         enderecos.add(new Endereco("Av. Setima", 600, "Bairro", "Cidade"));
         // Fornecedores
-        fornecedores.add(new Fornecedor("So Nos Computer Vendas de Informatica LTDA", "SoNosComputer", "111.111.111-11", enderecos.get(0), "67 99876-5432"));
-        fornecedores.add(new Fornecedor("Tartaruga Motores Vendas de Peças Automotivas LTDA", "Tartaruga Motors", "999.999.999-99", enderecos.get(1), "67 99876-5432"));
+        fornecedores.add(new Fornecedor("So Nos Computer Vendas de Informatica LTDA", "SoNosComputer", "11.111.111/1111-11", enderecos.get(0), "67 99876-5432"));
+        fornecedores.add(new Fornecedor("Tartaruga Motores Vendas de Peças Automotivas LTDA", "Tartaruga Motors", "99.999.999/9999-99", enderecos.get(1), "67 99876-5432"));
         // Funcionários
         funcionarios.add(new Funcionario("Lucas", "000.000.000-00", enderecos.get(2), "67 99150-9220", 1000f, "Vendedor"));
         funcionarios.add(new Funcionario("Pedro", "666.666.666-66", enderecos.get(3), "67 98844-3366", 1500f, "Vendedor"));
@@ -37,17 +37,17 @@ public class Database {
         clientes.add(new Cliente("Amanda", "777.777.777-77", enderecos.get(5), "67 97773-7773"));
         // Produtos
         // SoNosComputer
-        produtos.add(new Produto("Cooler de CPU (Multi-uso)", 300.49f, fornecedores.get(0)));
-        produtos.add(new Produto("Notebook Gamer Negativo", 450.99f, fornecedores.get(0)));
-        produtos.add(new Produto("Rato Gamer", 129.49f, fornecedores.get(0)));
-        produtos.add(new Produto("Memória Rã (Moscas inclusas)", 117.99f, fornecedores.get(0)));
-        produtos.add(new Produto("Mouse semi-óptico", 49.90f, fornecedores.get(0)));
+        produtos.add(new Produto(1,"Cooler de CPU (Multi-uso)", 300.49f, fornecedores.get(0)));
+        produtos.add(new Produto(2,"Notebook Gamer Negativo", 450.99f, fornecedores.get(0)));
+        produtos.add(new Produto(3,"Rato Gamer", 129.49f, fornecedores.get(0)));
+        produtos.add(new Produto(4,"Memória Rã (Moscas inclusas)", 117.99f, fornecedores.get(0)));
+        produtos.add(new Produto(5,"Mouse semi-óptico", 49.90f, fornecedores.get(0)));
         // Tartaruga Motors
-        produtos.add(new Produto("Motor de Fusca", 1099.99f, fornecedores.get(1)));
-        produtos.add(new Produto("Porta-luvas municiado", 17.17f, fornecedores.get(1)));
-        produtos.add(new Produto("Aromatizante Colorido", 13.13f, fornecedores.get(1)));
-        produtos.add(new Produto("Faz Sol Bro", 777.77f, fornecedores.get(1)));
-        produtos.add(new Produto("Pneu de Concreto (Perfeito para passeios)", 259.49f, fornecedores.get(1)));
+        produtos.add(new Produto(6,"Motor de Fusca", 1099.99f, fornecedores.get(1)));
+        produtos.add(new Produto(7,"Porta-luvas municiado", 17.17f, fornecedores.get(1)));
+        produtos.add(new Produto(8,"Aromatizante Colorido", 13.13f, fornecedores.get(1)));
+        produtos.add(new Produto(9,"Faz Sol Bro", 777.77f, fornecedores.get(1)));
+        produtos.add(new Produto(10,"Pneu de Concreto (Perfeito para passeios)", 259.49f, fornecedores.get(1)));
 
         // Compras
         compras.add(new Compra(funcionarios.get(0), clientes.get(0)));

@@ -20,9 +20,9 @@ public class MenuView extends JFrame {
     private JButton buttonProdutos;
 
     public MenuView(){
-        initComponents();
         Database.initDatabase();
         this.controller = new MenuController(this);
+        initComponents();
     }
 
     private void initComponents(){

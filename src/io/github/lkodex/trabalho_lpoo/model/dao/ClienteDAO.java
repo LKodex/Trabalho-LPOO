@@ -23,8 +23,12 @@ public class ClienteDAO {
     }
 
     public Cliente readCliente(String cpf){
+        System.out.println(cpf);
+        cpf = Cliente.formatarCpf(cpf);
+        System.out.println(cpf);
         for (Cliente cliente : Database.clientes) {
-            if (cliente.getCpf().equals(Cliente.formatarCpf(cpf))){
+            System.out.println(cliente.getCpf());
+            if (cliente.getCpf().equals(cpf)){
                 return cliente;
             }
         }

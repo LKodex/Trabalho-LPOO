@@ -12,7 +12,7 @@ public class Fornecedor implements Verificavel {
     public Fornecedor(String razaoSocial, String nomeFantasia, String cnpj, Endereco endereco, String celular){
         this.razaoSocial = razaoSocial.strip();
         this.nomeFantasia = nomeFantasia.strip();
-        this.cnpj = cnpj.replaceAll("[^0-9]", "");
+        this.cnpj = cnpj.strip().replaceAll("[^0-9]", "");
         this.endereco = endereco;
         this.celular = celular.strip();
     }
@@ -71,6 +71,11 @@ public class Fornecedor implements Verificavel {
 
     }
 
+    @Override
+    public String toString(){
+        return String.format("%s - %s - %s", nomeFantasia, razaoSocial, getCnpj());
+    }
+
     // Getters & Setters //
     public String getRazaoSocial() {
         return razaoSocial;
@@ -92,17 +97,17 @@ public class Fornecedor implements Verificavel {
         char[] cnpjFormatado = new char[18];
         char[] cnpjArray = this.cnpj.toCharArray();
 
-        cnpjFormatado[17] = cnpjArray[12];
-        cnpjFormatado[16] = cnpjArray[11];
+        cnpjFormatado[17] = cnpjArray[13];
+        cnpjFormatado[16] = cnpjArray[12];
 
         cnpjFormatado[15] = '-';
 
-        cnpjFormatado[14] = cnpjArray[10];
-        cnpjFormatado[13] = cnpjArray[9];
-        cnpjFormatado[12] = cnpjArray[8];
-        cnpjFormatado[11] =
+        cnpjFormatado[14] = cnpjArray[11];
+        cnpjFormatado[13] = cnpjArray[10];
+        cnpjFormatado[12] = cnpjArray[9];
+        cnpjFormatado[11] = cnpjArray[8];
 
-        cnpjFormatado[10] = '.';
+        cnpjFormatado[10] = '/';
 
         cnpjFormatado[9] = cnpjArray[7];
         cnpjFormatado[8] = cnpjArray[6];
@@ -123,20 +128,24 @@ public class Fornecedor implements Verificavel {
     }
 
     public static String formatarCnpj(String cnpj){
+        if (cnpj.length() != 14){
+            return cnpj;
+        }
+
         char[] cnpjFormatado = new char[18];
         char[] cnpjArray = cnpj.toCharArray();
 
-        cnpjFormatado[17] = cnpjArray[12];
-        cnpjFormatado[16] = cnpjArray[11];
+        cnpjFormatado[17] = cnpjArray[13];
+        cnpjFormatado[16] = cnpjArray[12];
 
         cnpjFormatado[15] = '-';
 
-        cnpjFormatado[14] = cnpjArray[10];
-        cnpjFormatado[13] = cnpjArray[9];
-        cnpjFormatado[12] = cnpjArray[8];
-        cnpjFormatado[11] =
+        cnpjFormatado[14] = cnpjArray[11];
+        cnpjFormatado[13] = cnpjArray[10];
+        cnpjFormatado[12] = cnpjArray[9];
+        cnpjFormatado[11] = cnpjArray[8];
 
-                cnpjFormatado[10] = '.';
+        cnpjFormatado[10] = '/';
 
         cnpjFormatado[9] = cnpjArray[7];
         cnpjFormatado[8] = cnpjArray[6];

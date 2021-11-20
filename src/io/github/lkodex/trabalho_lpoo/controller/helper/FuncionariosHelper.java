@@ -1,21 +1,21 @@
 package io.github.lkodex.trabalho_lpoo.controller.helper;
 
-import io.github.lkodex.trabalho_lpoo.model.Cliente;
 import io.github.lkodex.trabalho_lpoo.model.Endereco;
-import io.github.lkodex.trabalho_lpoo.view.ClientesView;
+import io.github.lkodex.trabalho_lpoo.model.Funcionario;
+import io.github.lkodex.trabalho_lpoo.view.FuncionariosView;
 
 import javax.swing.table.DefaultTableModel;
 import java.util.List;
 
-public class ClientesHelper {
-    private final ClientesView view;
+public class FuncionariosHelper {
+    private final FuncionariosView view;
 
-    public ClientesHelper(ClientesView view){
+    public FuncionariosHelper(FuncionariosView view){
         this.view = view;
     }
 
-    public Cliente getCliente(){
-        Cliente cliente;
+    public Funcionario getFuncionario(){
+        Funcionario funcionario;
         Endereco endereco;
 
         String nome = view.getNomeInput().getText();
@@ -28,24 +28,29 @@ public class ClientesHelper {
         String cidade = view.getCidadeInput().getText();
         String cep = view.getCepInput().getText();
 
-        endereco = new Endereco(rua, numero, bairro, cidade, cep);
-        cliente = new Cliente(nome, cpf, endereco, celular);
+        String funcao = view.getFuncaoInput().getText();
+        double salario = Double.parseDouble(view.getSalarioInput().getText().strip().replaceAll("[^0-9.,]", ""));
 
-        if (cliente.validar(cpf)){
-            return cliente;
+        endereco = new Endereco(rua, numero, bairro, cidade, cep);
+        funcionario = new Funcionario(nome, cpf, endereco, celular, salario, funcao);
+
+        if (funcionario.validar(cpf)){
+            return funcionario;
         }
         return null;
     }
 
-    public void atualizarTabela(List<Cliente> clientes){
-        DefaultTableModel tableModel = (DefaultTableModel) view.getTableClientes().getModel();
+    public void atualizarTabela(List<Funcionario> funcionarios){
+        DefaultTableModel tableModel = (DefaultTableModel) view.getTableFuncionarios().getModel();
         tableModel.setNumRows(0);
-        for (Cliente cliente : clientes) {
+        for (Funcionario funcionario : funcionarios) {
             tableModel.addRow(new Object[]{
-                    cliente.getCpf(),
-                    cliente.getNome(),
-                    cliente.getCelular(),
-                    cliente.getEndereco().toString()
+                    funcionario.getCpf(),
+                    funcionario.getNome(),
+                    funcionario.getCelular(),
+                    funcionario.getFuncao(),
+                    funcionario.getSalario(),
+                    funcionario.getEndereco().toString()
             });
         }
     }
@@ -61,7 +66,11 @@ public class ClientesHelper {
         String cidade = view.getCidadeInput().getText();
         String cep = view.getCepInput().getText();
 
+        String funcao = view.getFuncaoInput().getText();
+        String salario = view.getSalarioInput().getText();
+
         return !(nome.isBlank() || cpf.isBlank() || celular.isBlank() || rua.isBlank()
-        || numero.isBlank() || bairro.isBlank() || cidade.isBlank() || cep.isBlank());
+                || numero.isBlank() || bairro.isBlank() || cidade.isBlank() || cep.isBlank()
+                || funcao.isBlank() || salario.isBlank());
     }
 }

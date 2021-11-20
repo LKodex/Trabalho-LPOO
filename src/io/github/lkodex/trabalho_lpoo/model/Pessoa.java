@@ -10,7 +10,7 @@ public abstract class Pessoa implements Verificavel {
     // Constructos //
     public Pessoa(String nome, String cpf, Endereco endereco, String celular){
         this.nome = nome.strip();
-        this.cpf = cpf.replaceAll("[^0-9]", "");
+        this.cpf = cpf.strip().replaceAll("[^0-9]", "");
         this.endereco = endereco;
         this.celular = celular.strip();
     }
@@ -106,6 +106,10 @@ public abstract class Pessoa implements Verificavel {
     }
 
     public static String formatarCpf(String cpf){
+        if (cpf.length() != 11){
+            return cpf;
+        }
+
         char[] cpfFormatado = new char[14];
         char[] cpfArray = cpf.toCharArray();
 

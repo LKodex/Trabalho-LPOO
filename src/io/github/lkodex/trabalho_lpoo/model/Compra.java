@@ -22,7 +22,7 @@ public class Compra {
     }
 
     public void listarCompra(){
-        Float valorTotal = 0f;
+        double valorTotal = 0f;
 
         System.out.printf("\nComprado por:\t%s", this.cliente.getNome());
         System.out.printf("\nVendido por: \t%s", this.funcionario.getNome());

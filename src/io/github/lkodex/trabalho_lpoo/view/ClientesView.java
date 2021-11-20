@@ -1,6 +1,7 @@
 package io.github.lkodex.trabalho_lpoo.view;
 
 import io.github.lkodex.trabalho_lpoo.controller.ClientesController;
+import io.github.lkodex.trabalho_lpoo.model.Cliente;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -10,8 +11,6 @@ import java.awt.event.ActionListener;
 
 public class ClientesView extends JFrame {
     private final ClientesController controller;
-
-    private JLabel info;
 
     // Botões
     private JButton buttonInserir;
@@ -43,9 +42,8 @@ public class ClientesView extends JFrame {
     private JLabel cepText;
 
     public ClientesView(){
-        initComponents();
-
         this.controller = new ClientesController(this);
+        initComponents();
     }
 
     private void initComponents(){
@@ -174,8 +172,6 @@ public class ClientesView extends JFrame {
 
         add(tableScrollPane);
 
-        add(buttonInserir);
-
         add(nomeText);
         add(nomeInput);
 
@@ -200,6 +196,8 @@ public class ClientesView extends JFrame {
         add(cepText);
         add(cepInput);
 
+        atualizarTabela();
+
         // Torna a janela visível
         setVisible(true);
     }
@@ -213,10 +211,14 @@ public class ClientesView extends JFrame {
         controller.deletarCliente();
     }
 
-    //
+    private void atualizarTabela(){
+        controller.atualizarTabela();
+    }
+
     public void exibirMensagem(String message){
         JOptionPane.showMessageDialog(null, message);
     }
+
 
     // Getters & Setters //
     public JTable getTableClientes() {

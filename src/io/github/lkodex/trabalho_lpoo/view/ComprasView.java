@@ -10,9 +10,8 @@ public class ComprasView extends JFrame {
     private final ComprasController controller;
 
     public ComprasView(){
-        initComponents();
-
         this.controller = new ComprasController(this);
+        initComponents();
     }
 
     private void initComponents(){

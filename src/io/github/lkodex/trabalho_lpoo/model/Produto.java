@@ -4,11 +4,12 @@ public class Produto implements Comparable<Produto>{
     // Attributes //
     private int codigo;
     private String nomeProduto;
-    private Float valor;
+    private Double valor;
     private Fornecedor empresa;
 
     // Constructor //
-    public Produto(String nomeProduto, Float valor, Fornecedor empresa){
+    public Produto(int codigo, String nomeProduto, double valor, Fornecedor empresa){
+        this.codigo = codigo;
         this.nomeProduto = nomeProduto.strip();
         this.valor = valor;
         this.empresa = empresa;
@@ -44,11 +45,11 @@ public class Produto implements Comparable<Produto>{
         this.nomeProduto = nomeProduto;
     }
 
-    public Float getValor() {
+    public double getValor() {
         return valor;
     }
 
-    public void setValor(Float valor) {
+    public void setValor(double valor) {
         this.valor = valor;
     }
 

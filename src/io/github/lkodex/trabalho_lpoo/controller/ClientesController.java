@@ -44,19 +44,8 @@ public class ClientesController {
         helper.atualizarTabela(dao.getTable());
     }
 
-    public void atualizarCliente(){
-        if (helper.estaPreenchido()) {
-            ClienteDAO dao = new ClienteDAO();
-            Cliente clienteAntigo = dao.readCliente(view.getCpfInput().getText().replaceAll("[^0-9]", ""));
-            Cliente clienteNovo = helper.getCliente();
-            if (clienteAntigo == null) {
-                view.exibirMensagem("ERRO! Não foi possível encontrar o cliente, verifique se o CPF está correto e sem pontuações.");
-                return;
-            }
-            dao.updateCliente(clienteNovo);
-            helper.atualizarTabela(dao.getTable());
-        } else {
-            view.exibirMensagem("ERRO! Preencha todos os campos.");
-        }
+    public void atualizarTabela(){
+        ClienteDAO dao = new ClienteDAO();
+        helper.atualizarTabela(dao.getTable());
     }
 }
