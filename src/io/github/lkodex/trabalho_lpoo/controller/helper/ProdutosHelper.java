@@ -15,6 +15,7 @@ public class ProdutosHelper {
         this.view = view;
     }
 
+    // Cria um novo Produto a partir dos dados inseridos na view
     public Produto getProduto(){
         Produto produto;
         Fornecedor fornecedor;
@@ -23,7 +24,7 @@ public class ProdutosHelper {
 
         int codigo = Integer.parseInt(view.getCodigoInput().getText().strip());
         String nomeProduto = view.getNomeProdutoInput().getText().strip();
-        double valor = Double.parseDouble(view.getValorInput().getText());
+        double valor = Double.parseDouble(view.getValorInput().getText().replaceAll(",", "."));
 
         String cnpj = view.getEmpresaCNPJInput().getText().strip();
 
@@ -47,6 +48,8 @@ public class ProdutosHelper {
                     produto.getEmpresa().toString()
             });
         }
+
+
     }
 
     public boolean estaPreenchido(){

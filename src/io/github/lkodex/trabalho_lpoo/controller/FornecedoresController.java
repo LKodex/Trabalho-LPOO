@@ -2,7 +2,6 @@ package io.github.lkodex.trabalho_lpoo.controller;
 
 import io.github.lkodex.trabalho_lpoo.controller.helper.FornecedoresHelper;
 import io.github.lkodex.trabalho_lpoo.model.Fornecedor;
-import io.github.lkodex.trabalho_lpoo.model.dao.ClienteDAO;
 import io.github.lkodex.trabalho_lpoo.model.dao.FornecedorDAO;
 import io.github.lkodex.trabalho_lpoo.view.FornecedoresView;
 

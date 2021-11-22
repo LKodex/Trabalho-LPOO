@@ -1,7 +1,6 @@
 package io.github.lkodex.trabalho_lpoo.model.dao;
 
 import io.github.lkodex.trabalho_lpoo.Database;
-import io.github.lkodex.trabalho_lpoo.model.Cliente;
 import io.github.lkodex.trabalho_lpoo.model.Funcionario;
 
 import java.util.List;

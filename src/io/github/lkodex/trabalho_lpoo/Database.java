@@ -50,10 +50,10 @@ public class Database {
         produtos.add(new Produto(10,"Pneu de Concreto (Perfeito para passeios)", 259.49f, fornecedores.get(1)));
 
         // Compras
-        compras.add(new Compra(funcionarios.get(0), clientes.get(0)));
-        compras.add(new Compra(funcionarios.get(0), clientes.get(1)));
-        compras.add(new Compra(funcionarios.get(1), clientes.get(0)));
-        compras.add(new Compra(funcionarios.get(1), clientes.get(1)));
+        compras.add(new Compra(0, funcionarios.get(0), clientes.get(0)));
+        compras.add(new Compra(1, funcionarios.get(0), clientes.get(1)));
+        compras.add(new Compra(2, funcionarios.get(1), clientes.get(0)));
+        compras.add(new Compra(3, funcionarios.get(1), clientes.get(1)));
 
         // Gera 4 compras
         for (int i = 0; i < compras.size(); i++) {

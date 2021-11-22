@@ -3,7 +3,6 @@ package io.github.lkodex.trabalho_lpoo.model.dao;
 import io.github.lkodex.trabalho_lpoo.Database;
 import io.github.lkodex.trabalho_lpoo.model.Cliente;
 
-import java.util.Iterator;
 import java.util.List;
 
 public class ClienteDAO {
@@ -23,11 +22,8 @@ public class ClienteDAO {
     }
 
     public Cliente readCliente(String cpf){
-        System.out.println(cpf);
         cpf = Cliente.formatarCpf(cpf);
-        System.out.println(cpf);
         for (Cliente cliente : Database.clientes) {
-            System.out.println(cliente.getCpf());
             if (cliente.getCpf().equals(cpf)){
                 return cliente;
             }

@@ -2,8 +2,6 @@ package io.github.lkodex.trabalho_lpoo.controller;
 
 import io.github.lkodex.trabalho_lpoo.controller.helper.ProdutosHelper;
 import io.github.lkodex.trabalho_lpoo.model.Produto;
-import io.github.lkodex.trabalho_lpoo.model.dao.ClienteDAO;
-import io.github.lkodex.trabalho_lpoo.model.dao.FuncionarioDAO;
 import io.github.lkodex.trabalho_lpoo.model.dao.ProdutoDAO;
 import io.github.lkodex.trabalho_lpoo.view.ProdutosView;
 
@@ -21,7 +19,7 @@ public class ProdutosController {
             ProdutoDAO dao = new ProdutoDAO();
             Produto produto = helper.getProduto();
             if (produto == null) {
-                view.exibirMensagem("ERRO! Não foi possível inserir novo cliente, verifique se o CPF está correto e sem pontuações.");
+                view.exibirMensagem("ERRO! Não foi possível inserir novo produto, verifique se o CNPJ está correto.");
                 return;
             }
             dao.createProduto(produto);

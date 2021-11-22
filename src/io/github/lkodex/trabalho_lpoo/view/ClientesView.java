@@ -1,7 +1,6 @@
 package io.github.lkodex.trabalho_lpoo.view;
 
 import io.github.lkodex.trabalho_lpoo.controller.ClientesController;
-import io.github.lkodex.trabalho_lpoo.model.Cliente;
 
 import javax.swing.*;
 import javax.swing.table.DefaultTableModel;
@@ -53,6 +52,7 @@ public class ClientesView extends JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(1015, 700);
         setTitle("Sistema de Compras -> Clientes");
+        setResizable(false);
         // Centraliza a janela
         setLocationRelativeTo(null);
 

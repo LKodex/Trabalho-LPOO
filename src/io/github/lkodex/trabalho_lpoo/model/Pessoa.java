@@ -137,6 +137,38 @@ public abstract class Pessoa implements Verificavel {
         return new String(cpfFormatado);
     }
 
+    public String getCpfCensurado(){
+        if (cpf.length() != 11){
+            return cpf;
+        }
+
+        char[] cpfFormatado = new char[14];
+        char[] cpfArray = cpf.toCharArray();
+
+        cpfFormatado[13] = '*';
+        cpfFormatado[12] = '*';
+
+        cpfFormatado[11] = '-';
+
+        cpfFormatado[10] = cpfArray[8];
+        cpfFormatado[9] = cpfArray[7];
+        cpfFormatado[8] = cpfArray[6];
+
+        cpfFormatado[7] = '.';
+
+        cpfFormatado[6] = cpfArray[5];
+        cpfFormatado[5] = cpfArray[4];
+        cpfFormatado[4] = cpfArray[3];
+
+        cpfFormatado[3] = '.';
+
+        cpfFormatado[2] = '*';
+        cpfFormatado[1] = '*';
+        cpfFormatado[0] = '*';
+
+        return new String(cpfFormatado);
+    }
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
     }

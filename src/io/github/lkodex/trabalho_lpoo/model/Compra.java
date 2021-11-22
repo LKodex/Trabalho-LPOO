@@ -10,7 +10,8 @@ public class Compra {
     private List<Produto> produtos = new ArrayList<>();
 
     // Constructors //
-    public Compra(Funcionario funcionario, Cliente cliente){
+    public Compra(int codigoCompra, Funcionario funcionario, Cliente cliente){
+        this.codigoCompra = codigoCompra;
         this.funcionario = funcionario;
         this.cliente = cliente;
     }
@@ -19,6 +20,10 @@ public class Compra {
     public void adicionarProduto(Produto produto){
         produtos.add(produto);
         Collections.sort(produtos);
+    }
+
+    public void removerProduto(Produto produto){
+        produtos.remove(produto);
     }
 
     public void listarCompra(){

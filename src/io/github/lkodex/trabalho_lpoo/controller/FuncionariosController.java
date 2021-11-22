@@ -2,7 +2,6 @@ package io.github.lkodex.trabalho_lpoo.controller;
 
 import io.github.lkodex.trabalho_lpoo.controller.helper.FuncionariosHelper;
 import io.github.lkodex.trabalho_lpoo.model.Funcionario;
-import io.github.lkodex.trabalho_lpoo.model.dao.ClienteDAO;
 import io.github.lkodex.trabalho_lpoo.model.dao.FuncionarioDAO;
 import io.github.lkodex.trabalho_lpoo.view.FuncionariosView;
 

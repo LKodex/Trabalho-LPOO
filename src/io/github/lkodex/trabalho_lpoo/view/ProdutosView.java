@@ -42,6 +42,7 @@ public class ProdutosView extends JFrame {
         setDefaultCloseOperation(DISPOSE_ON_CLOSE);
         setSize(1015, 700);
         setTitle("Sistema de Compras -> Produtos");
+        setResizable(false);
         // Centraliza a janela
         setLocationRelativeTo(null);
 
@@ -72,8 +73,9 @@ public class ProdutosView extends JFrame {
         // Tabela
         tableProdutos = new JTable();
         tableProdutos.setBounds(25, 25, 950, 350);
-        tableProdutos.setModel(new DefaultTableModel(new Object[][] {}, new String[] {"CODIGO", "NOME DO PRODUTO", "VALOR", "EMPRESA"}));
+        tableProdutos.setModel(new DefaultTableModel(new Object[][] {}, new String[] {"CODIGO", "NOME DO PRODUTO", "VALOR (R$)", "EMPRESA"}));
         tableProdutos.setEnabled(false);
+        tableProdutos.setAutoResizeMode(JTable.AUTO_RESIZE_ALL_COLUMNS);
         // Painel para a tabela
         tableScrollPane = new JScrollPane();
         tableScrollPane.setViewportView(tableProdutos);

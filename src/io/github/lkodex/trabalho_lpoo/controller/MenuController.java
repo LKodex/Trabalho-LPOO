@@ -49,7 +49,7 @@ public class MenuController {
 
     public void comprasClicked(){
         view.setEnabled(false);
-        JFrame comprasView = new ComprasView();
+        JFrame comprasView = new ListaComprasView();
         comprasView.addWindowListener(windowListener);
     }
 
