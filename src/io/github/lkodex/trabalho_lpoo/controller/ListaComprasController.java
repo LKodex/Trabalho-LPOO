@@ -21,7 +21,7 @@ public class ListaComprasController {
             CompraDAO dao = new CompraDAO();
             Compra compra = helper.getCompra();
             if (compra == null) {
-                view.exibirMensagem("ERRO! Não foi possível inserir nova compra, verifique se o Código de Compra está correto e sem pontuações.");
+                view.exibirMensagem("ERRO! Não foi possível inserir nova compra, verifique se o Código de Compra.");
                 return;
             }
             dao.createCompra(compra);
