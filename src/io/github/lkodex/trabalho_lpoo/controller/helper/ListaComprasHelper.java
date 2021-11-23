@@ -20,7 +20,6 @@ public class ListaComprasHelper {
     }
 
     public Compra getCompra(){
-        Compra compra;
         Cliente cliente;
         Funcionario vendedor;
 
@@ -33,9 +32,11 @@ public class ListaComprasHelper {
 
         cliente = clienteDAO.readCliente(cpfCliente);
         vendedor = funcionarioDAO.readFuncionario(cpfFuncionario);
-        compra = new Compra(codigoCompra, vendedor, cliente);
 
-        return compra;
+        if (cliente != null && vendedor != null){
+            return new Compra(codigoCompra, vendedor, cliente);
+        }
+        return null;
     }
 
     public void atualizarTabela(List<Compra> compras){

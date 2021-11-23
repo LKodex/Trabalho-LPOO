@@ -54,7 +54,7 @@ public class ComprasView extends JFrame {
         // Cria o conteúdo a ser adicionado à tela //
         // Botão Inserir
         buttonInserir = new JButton();
-        buttonInserir.setText("Inserir/Atualizar");
+        buttonInserir.setText("Inserir");
         buttonInserir.setBounds(275, 575, 200, 50);
         buttonInserir.setFont(new Font("Courier", Font.PLAIN, 13));
         buttonInserir.addActionListener(new ActionListener() {
@@ -66,7 +66,7 @@ public class ComprasView extends JFrame {
 
         // Botão Excluir
         buttonRemover = new JButton();
-        buttonRemover.setText("Excluir");
+        buttonRemover.setText("Remover");
         buttonRemover.setBounds(525, 575, 200, 50);
         buttonRemover.setFont(new Font("Courier", Font.PLAIN, 13));
         buttonRemover.addActionListener(new ActionListener() {
